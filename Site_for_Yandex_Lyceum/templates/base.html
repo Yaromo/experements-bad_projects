@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="" type="png" href="">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+<footer class="text-body-secondary py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+        {% block return %}
+        {% endblock %}
+    </p>
+    <p class="mb-1">Понравился сайт? <br><a href="https://github.com/Yaromo/general_chat_site">Вот он на Github</a></p>
+  </div>
+</footer>
+<script defer="" src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"></script>
+
+</body>
+</html>

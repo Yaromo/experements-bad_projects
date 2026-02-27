@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Общий чат
+{% endblock %}
+
+{% block body %}
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Общий чат</h1>
+        <p class="lead text-body-secondary">---Правила чата---</p>
+        <p>
+          Их нет...
+        </p>
+          {% for message in posts %}
+          <div class="card shadow-sm">
+              <p class="bd-lead">{{ message.name }}</p>
+              <p class="bd-lead">{{ message.content }}</p>
+          </div>
+          {% endfor %}
+        {% if current_user.is_authenticated %}
+        <p>Вход выполнен<br>Аккаунт - {{ current_user.name }}</p>
+    <a class="navbar-brand" href="/logout"><button type="button">Выйти</button></a>
+        <form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+
+        {{ form.content.label }}<br>
+        {{ form.content(class="form-control") }}<br>
+        {% for error in form.content.errors %}
+            <p content="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+        </form>
+{% else %}
+    <p>
+        <a href="/registration"><button type="button">Зарегистрироваться</button></a>
+        <a href="/sign_up"><button type="button">Войти</button></a>
+    </p>
+{% endif %}
+      </div>
+    </div>
+  </section>
+
+
+</main>
+{% endblock %}
+
+{% block return %}
+<a href="#">Вернуться на верх</a>
+{% endblock %}
